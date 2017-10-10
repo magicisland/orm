@@ -15,7 +15,7 @@
     	
     	<property name="hibernate.current_session_context_class">thread</property>
     	<mapping class="org.javabrains.koushik.dto.UserDetails" />
-    	
+    	<mapping class="org.javabrains.koushik.dto.Vehicle" />
     
     </session-factory>
 </hibernate-configuration>
