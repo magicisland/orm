@@ -1,10 +1,21 @@
 package org.javabrains.koushik.dto;
 
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.Id;
+import javax.persistence.Table;
+
+@Entity
+@Table(name="USER_DETAILS")
 public class UserDetails {
 
 
+	@Id
 	protected int userId;
+	
+	@Column
 	protected String userName;
+	
 	public int getUserId() {
 		return userId;
 	}
