@@ -4,6 +4,7 @@ import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.cfg.Configuration;
 import org.javabrains.koushik.dto.UserDetails;
+import org.javabrains.koushik.dto.Vehicle;
 
 public class Test {
 
@@ -28,11 +29,29 @@ public class Test {
 		// TODO Auto-generated method stub
 
 		UserDetails user = new UserDetails();
-		user.setUserId(1);
 		user.setUserName("Marcelo");
+		Vehicle vehicle=new Vehicle();
+		vehicle.setVehicleName("ford");
 		
-		Test test = new Test();
-		test.save(user);
+
+		SessionFactory factory = new Configuration().configure().buildSessionFactory();
+		
+		Session sess =  factory.openSession();
+		
+		sess.save(user);
+		sess.save(vehicle);
+		user.setVehicle(vehicle);
+		
+		
+		sess.beginTransaction();
+		
+		
+		
+		sess.getTransaction().commit();
+
+		
+
+		
 		}
 
 }
