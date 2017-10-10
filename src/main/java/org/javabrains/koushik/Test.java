@@ -32,20 +32,29 @@ public class Test {
 		user.setUserName("Marcelo");
 		Vehicle vehicle=new Vehicle();
 		vehicle.setVehicleName("ford");
+	
 		
+		Vehicle vehicle2=new Vehicle();
+		vehicle2.setVehicleName("jeep");
+
 
 		SessionFactory factory = new Configuration().configure().buildSessionFactory();
 		
 		Session sess =  factory.openSession();
 		
-		sess.save(user);
-		sess.save(vehicle);
-		user.setVehicle(vehicle);
-		
-		
+				
 		sess.beginTransaction();
 		
 		
+		sess.save(vehicle);
+		sess.save(vehicle2);
+	
+		
+		user.getVehicle().add(vehicle);
+		user.getVehicle().add(vehicle2);
+
+		
+		sess.save(user);
 		
 		sess.getTransaction().commit();
 

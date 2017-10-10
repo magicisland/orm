@@ -2,12 +2,16 @@ package org.javabrains.koushik.dto;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+
+import org.hibernate.annotations.Generated;
 
 @Entity
 public class Vehicle {
 
 	@Id
+	@GeneratedValue
 	public int vehicleId;
 	
 	@Column
